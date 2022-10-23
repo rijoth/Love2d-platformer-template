@@ -1,0 +1,53 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "test_level.tmx",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "#tileset": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "test_level.tmx": {
+            "scale": 1,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 278.5,
+                "y": 124
+            }
+        },
+        "test_level.tmx#objects": {
+            "scaleInDock": 1
+        },
+        "test_level.tmx#platform": {
+            "scaleInDock": 1
+        }
+    },
+    "last.exportedFilePath": "/home/rijo/GameJams/ThyWill/tileset",
+    "last.imagePath": "/home/rijo/GameJams/ThyWill/assets/environment",
+    "map.height": 14,
+    "map.lastUsedExportFilter": "Lua files (*.lua)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 60,
+    "openFiles": [
+        "test_level.tmx"
+    ],
+    "project": "gothic.tiled-project",
+    "recentFiles": [
+        "test_level.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
