@@ -1,5 +1,20 @@
 Player = Actor:extend()
 
+-- controller config
+Player.input = Baton.new {
+  controls = {
+    left = {'key:left', 'key:a', 'axis:leftx-', 'button:dpleft'},
+    right = {'key:right', 'key:d', 'axis:leftx+', 'button:dpright'},
+    up = {'key:up', 'key:w', 'axis:lefty-', 'button:dpup'},
+    down = {'key:down', 'key:s', 'axis:lefty+', 'button:dpdown'},
+    action = {'key:x', 'button:a'},
+  },
+  pairs = {
+    move = {'left', 'right', 'up', 'down'}
+  },
+  joystick = love.joystick.getJoysticks()[1],
+}
+
 function Player:new(world)
   self.id = "player"
   self.x = 10
@@ -19,6 +34,8 @@ function Player:new(world)
 end
 
 function Player:update(dt)
+  -- update input (baton)
+  self.input:update()
   -- collision filter passed to update world
   local filter = function (item, other)
     -- implment pass through bottom platform if platform has id 'jumpthru'
@@ -27,13 +44,13 @@ function Player:update(dt)
   -- update x, y  inherited from actor base class
   self.x, self.y, self.colls = self:update_world(filter, dt)
 
-  -- inherit movement from actor class move() function
-  if love.keyboard.isDown("left") then
+  -- inherit movement from actor class move() function (using baton input())
+  if self.input:down('left') then
     self:move("left", dt)
-  elseif love.keyboard.isDown("right") then
+  elseif self.input:down("right") then
     self:move("right", dt)
   end
-  if love.keyboard.isDown("up") and self.is_grounded then
+  if self.input:down("action") and self.is_grounded then
     self:move("up", dt)
   end
 

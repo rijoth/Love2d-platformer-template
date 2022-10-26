@@ -1,4 +1,6 @@
 Object = require('lib.classic')
+Baton = require('lib.baton')
+
 local bump = require('lib.bump')
 
 require('src.base.actor')
@@ -9,6 +11,11 @@ local world
 local ground1 = { id = "ground", x = 0, y = 160, w = 320, h = 16 }
 local ground2 = { id = "jumpthru", x = 100, y = 120, w = 100, h = 16 }
 function love.load()
+  -- load controller db
+  if love.filesystem.getInfo("gamecontrollerdb.txt") ~= nil then
+    love.joystick.loadGamepadMappings("gamecontrollerdb.txt")
+  end
+
   -- setup bump
   world = bump.newWorld(16)
 
